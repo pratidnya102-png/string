@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stddef.h>
+int Strcmp(char *s1, char *s2) {
+    while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2) {
+    	s1++;
+    	s2++;
+    }
+ 
+    return (int)(unsigned char)*s1 - (int)(unsigned char)*s2;
+}
+ 
+int Strlen(char a[]){
+  
+     int count = 0; 	
+     	int i = 0;
+     	while(a[i] != '\0'){
+         	
+         	count++;
+         	i++;
+     	}  
+     return count;
+}
+ 
+char* Strcpy(char b[], char a[]){  
+    int i = 0;
+    while(a[i] != '\0'){   	
+    	b[i] = a[i];
+    	i++;
+    }
+    return b;
+}
+char *Strcat(char *dest, const char *src) {
+    char *original_dest = dest;  
+    while (*dest != '\0') {
+    	dest++;
+    }  
+    while (*src != '\0') {
+    	*dest = *src;
+    	dest++;
+    	src++;
+    }  
+    *dest = '\0';
+ 
+    return original_dest;
+}
+int main(){
+  
+    char a[20], b[20], c[20];
+  
+    printf("Enter the first book code :");
+    scanf("%s", a);
+  
+    printf("Enter the second book code :");
+    scanf("%s", b);
+  
+    int len = Strlen(a);
+  
+    printf("\nlength of the first book code is: %d", len);
+  
+    Strcpy(c, a);
+  
+    printf("\nCopy of first book code is: %s", c);
+  
+	int cmp = Strcmp(b, a);  //Join strings together concatenation.
+ 
+  
+    if(cmp == 0){
+   	
+    	printf("\nboth book codes are equal");
+    }
+    else{
+   	
+    	printf("\nboth book codes are not equal");
+    }
+  
+    Strcat(a, b);
+    printf("\nconcatted code is: %s", a);
+ 
+}
